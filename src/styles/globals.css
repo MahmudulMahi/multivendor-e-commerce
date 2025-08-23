@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root {
+  --background: white;
+  --foreground: #727272;
+  --primary: #dc2626;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-roboto: "Roboto", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --animate-ripple: ripple 0.6s linear;
+  --animate-fade-up: fadeup 0.4s ease-out;
+  --animate-marquee: marquee_run 15s linear infinite;
+  --animate-modalShow: modalShow 0.3s ease-out forwards;
+  --breakpoint-xs: 480px;
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  @keyframes fadeup {
+    0% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes marquee_run {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes modalShow {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+  [type="submit"],
+  [type="reset"],
+  [type="button"] {
+    @apply cursor-pointer;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: white;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Poppins; 
+}
+/* dot style  */
+.dot {
+  @apply w-2 h-2 bg-gray-300 rounded-full mx-1 inline-block opacity-60 transition-all duration-300 ease-in-out;
+  transform-origin: center;
+}
+
+.dot.swiper-pagination-bullet-active {
+  @apply w-6 opacity-100;
+}
+/* Position dots to the left */
+.custom-swiper .swiper-pagination {
+  @apply flex justify-start ml-20  mb-6;
+}
+
+/*  
+browser scrollbar custom design code here 
+ */
+/* global.css or your component CSS */
+::-webkit-scrollbar {
+  width: 12px; /* vertical scrollbar */
+  height: 8px; /* horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: white; /* track color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dc2626; /* scroll handle */
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb709; /* hover effect */
+}
+
+/* custom slider color change 
+ */
+#custom-slider-color {
+  background-color: #111827;
+}
+#custom-slider-color .range-slider__range {
+  background: #111827;
+  transition: height 0.3s;
+}
+
+#custom-slider-color .range-slider__thumb {
+  background: #111827;
+  transition: transform 0.3s;
+}
+
+/* now continaer custom container  */
+.container-custom {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container-custom {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container-custom {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-custom {
+    width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-custom {
+    width: 1320px;
+  }
+}
+@media (min-width: 1600px) {
+  .container-custom {
+    width: 1550px;
+  }
+}
+
+/* hide scrollbar  */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+ 
