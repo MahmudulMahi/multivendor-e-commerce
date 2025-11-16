@@ -16,7 +16,7 @@ function useProductFilterMaterial({route,isFetch}) {
         setData(response?.data?.data);
         setLoading(false);
       } catch (err) {
-        setError(err.message || "Unknown ");
+        setError(err.message || "Unknown error");
         setLoading(false);
       } finally {
         setLoading(false);
